@@ -1,0 +1,22 @@
+[package]
+name = "monitor-keys"
+version = "1.1.0"
+edition = "2021"
+license = "MIT"
+description = "Invisible F-key monitor input switcher for Apple Silicon Macs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+ddc = "0.2"
+ddc-macos = "0.2.2"
+global-hotkey = { version = "0.8", path = "vendor/global-hotkey" }
+libc = "0.2"
+serde = { version = "1", features = ["derive"] }
+tao = "0.35"
+toml = "0.8"
+toml_edit = "0.20"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1

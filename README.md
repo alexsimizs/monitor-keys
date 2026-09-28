@@ -12,7 +12,7 @@ Select the laptop using Logitech Easy-Switch, then press the function key for it
 
 ## Install on each Mac
 
-1. Download [MonitorKeys-AppleSilicon.zip](https://github.com/alexsimizs/monitor-keys/raw/refs/heads/main/downloads/MonitorKeys-AppleSilicon.zip), then unzip it. Use the installer ZIP linked above; the repository source-code ZIP is for development. The installer checksum is in [downloads/MonitorKeys-AppleSilicon.sha256](downloads/MonitorKeys-AppleSilicon.sha256).
+1. On [the repository page](https://github.com/alexsimizs/monitor-keys), choose **Code → Download ZIP**. Unzip it once. The compiled `monitor-keys` executable is included beside `Install.command`.
 2. Double-click `Install.command`. It opens Terminal for the one-time installation.
 3. Close Terminal when the installer reports that global shortcuts are registered.
 4. Open a new Terminal tab to use the permanent `mk` command. In an already-open tab, run `source ~/.zshrc` (or your custom ZDOTDIR `.zshrc`).
@@ -79,8 +79,8 @@ All three bindings are global and reserved while the listener runs. They work in
 ## Commands
 
 `mk install` reruns setup for the installed version. For the first installation
-or an upgrade, run `Install.command` from the downloaded release package.
-Alternatively, run `./monitor-keys install` in the extracted release folder.
+or an upgrade, run `Install.command` from the downloaded project folder.
+Alternatively, run `./monitor-keys install` in the extracted project folder.
 It does not download updates.
 
 `mk init` creates the default config only when it is missing. Existing files
@@ -141,7 +141,7 @@ Installed locations:
 - Login startup: `~/Library/LaunchAgents/local.monitor-keys.agent.plist`
 - Log: `~/Library/Logs/Monitor Keys/monitor-keys.log`
 
-You can delete the extracted package after installation; the running utility uses its installed copy. Keep the ZIP to transfer to another Mac.
+You can delete the extracted project folder after installation; the running utility uses its installed copy. Download the repository again for an updated build or transfer the same ZIP to another Mac.
 
 ## Implementation and source
 
@@ -149,4 +149,4 @@ Source is included in `source/`. It uses the same `ddc-macos` monitor-control li
 
 “Sent” means the DDC write succeeded, not that the monitor independently confirmed its physical input change. Switching back from an inactive connection still requires the monitor to accept that command. No brightness, volume, USB/KVM, or Logitech settings are changed.
 
-To build from this repository, install Rust and Apple's Command Line Tools, then run `source/scripts/build.sh` from the repository root. It creates `monitor-keys` beside `Install.command`; run `./Install.command` to install your build. For source verification, run `cargo test --locked` inside `source/`. Third-party license notices are included in `licenses/` and `THIRD_PARTY.md`; the reference project's MIT notice is preserved in `source/LICENSE`.
+The repository includes a ready-to-run executable, so building is optional. To rebuild from this repository, install Rust and Apple's Command Line Tools, then run `source/scripts/build.sh` from the repository root. It creates `monitor-keys` beside `Install.command`; run `./Install.command` to install your build. For source verification, run `cargo test --locked` inside `source/`. Third-party license notices are included in `licenses/` and `THIRD_PARTY.md`; the reference project's MIT notice is preserved in `source/LICENSE`.
